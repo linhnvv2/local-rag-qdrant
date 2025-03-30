@@ -27,26 +27,18 @@ docker run -p 6333:6333 -v ~/qdrant_storage:/qdrant/storage:z qdrant/qdrant
 #### Downloading & Indexing data
 
 ```bash
-python rag/data.py --query "LLM" --max 10 --ingest
+#Using default directory from config.yml
+python rag/data.py
+
+#For a single PDF file:
+python rag/data.py -f /path/to/your/file.pdf
+
+#For all PDFs in a directory
+python rag/data.py -d /path/to/pdf/directory
 ```
 
 #### Starting Ollama LLM server
 
-Follow [this article](https://otmaneboughaba.com/posts/local-llm-ollama-huggingface/) for more infos on how to run models from hugging face locally with Ollama.
-
-Create model from Modelfile
-
-```bash
-ollama create research_assistant -f ollama/Modelfile 
-```
-
-Start the model server
-
-```bash
-ollama run research_assistant
-```
-
-By default, Ollama runs on ```http://localhost:11434```
 
 #### Starting the api server
 

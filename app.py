@@ -171,16 +171,15 @@ async def search(query: Query):
         context_text = "\n\n".join(contexts)
         
         # Format prompt
-        prompt = f"""Based on the following context from research papers, please answer the question. 
-If the answer cannot be determined from the context, say 'I don't have enough information from the research papers to answer this question.'
+        prompt = f"""Based on the following CV/resume content, please analyze and provide insights about the candidate.
+If any information is unclear or missing from the CV, indicate that in your response.
 
-Context:
+CV Content:
 {context_text}
 
 Question: {query.query}
 
-Answer:"""
-        
+Please provide a detailed analysis focusing on the candidate's qualifications, experience, and suitability:"""
         # Get response from LLM
         response_text = llm.complete(prompt).text
         
