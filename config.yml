@@ -1,0 +1,12 @@
+# Local PDF storage
+data_path: "./data"  # Path to your PDF files
+
+# Local Qdrant settings
+qdrant_url: "http://localhost:6333"
+collection_name: "research_papers"
+chunk_size: 1024
+
+# Local Ollama settings
+ollama_url: "http://localhost:11434"
+llm_model: "mistral"            # Your chosen Ollama LLM model
+embed_model: "nomic-embed-text"  # Your chosen Ollama embedding model
