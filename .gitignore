@@ -1,3 +1,4 @@
 myenv/
 rag/__init__.py
 rag/__pycache__/
+__pycache__/
