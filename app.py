@@ -171,15 +171,21 @@ async def search(query: Query):
         context_text = "\n\n".join(contexts)
         
         # Format prompt
-        prompt = f"""Based on the following CV/resume content, please analyze and provide insights about the candidate.
-If any information is unclear or missing from the CV, indicate that in your response.
+        prompt = f"""Based on the following technical documentation or content, please analyze and provide a structured summary focusing on:
+1. Technical Requirements
+2. System Architecture
+3. Support Requirements
+4. Key Features
+5. Potential Challenges
 
-CV Content:
+If any information is unclear or missing, please indicate that in your response.
+
+Content:
 {context_text}
 
 Question: {query.query}
 
-Please provide a detailed analysis focusing on the candidate's qualifications, experience, and suitability:"""
+Please provide a detailed technical analysis focusing on the above aspects:"""
         # Get response from LLM
         response_text = llm.complete(prompt).text
         
